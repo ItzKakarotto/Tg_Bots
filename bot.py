@@ -7,7 +7,7 @@ TOKEN = os.environ.get('TOKEN')
 ID = os.environ.get('ID')
 HASH = os.environ.get('HASH')
 BANNED_LIST = []
-bot = Client('bot',api_id=int(ID),api_hash=str(HASH),bot_token=str(TOKEN))
+bot = Client('bot',api_id=ID,api_hash=str(HASH),bot_token=str(TOKEN))
 buttoms = InlineKeyboardMarkup(
     [
         [
