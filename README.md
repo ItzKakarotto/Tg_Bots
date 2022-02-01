@@ -1,4 +1,3 @@
-# Request Bot
+**Deploy**
 
-
-[Request Bot](t.me/anime_heavenrobot)
+- Just fill the Vars in config.py
