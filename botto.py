@@ -78,7 +78,6 @@ async def reply(client, message):
     except TelegramError as e:
         await message.reply_text(e)
         
-@bot.on_message(filters.regex('start=request'))
 @bot.on_message(filters.regex('/request'))
 async def request(client, message):
     texto = f"<b>What do you want to Request?</b>\n<b>Options are:</b>\n<code>Anime</code>\n<code>Manga</code>\n<code>Movie</code>\n<code>Hentai</code>\n<code>Sticker</code>\n<code>Wallpaper</code>\n<code>Theme</code>\n<code>Music</code>\n<code>Novel</code>\n<code>Amv</code>"
