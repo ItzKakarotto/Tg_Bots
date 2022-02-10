@@ -6,6 +6,8 @@ from pyromod import listen
 TOKEN = os.environ.get('TOKEN')
 ID = os.environ.get('ID')
 HASH = os.environ.get('HASH')
+CHANNEL_USERNAME = os.environ.get('CHANNEL_USERNAME', "Anime_Memes_XD")
+CHANNEL_ID = os.environ.get('CHANNEL_ID', -1001409286430)
 BANNED_LIST = []
 bot = Client('bot',api_id=ID,api_hash=str(HASH),bot_token=str(TOKEN))
 buttoms = InlineKeyboardMarkup(
@@ -43,8 +45,8 @@ async def photo(client, message):
 @bot.on_callback_query(filters.regex("approve"))
 def approve(submission, query):
     sender = query.message.caption.split("ID: ")
-    x = bot.send_photo(-1001409286430, photo=query.message.photo.file_id, caption="#anime_meme")
-    link = f"t.me/Anime_memes_XD/{x.message_id}"
+    x = bot.send_photo(CHANNEL_ID, photo=query.message.photo.file_id, caption="#anime_meme")
+    link = f"t.me/{CHANNEL_USERNAME}/{x.message_id}"
     query.answer("Kay Approved")
     query.edit_message_caption(f"This Meme Has been Approved by {query.from_user.mention}🙃\nUser: {sender[1]}",reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="Post link  🔗", url= link)]]))
